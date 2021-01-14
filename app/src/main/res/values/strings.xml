@@ -14,4 +14,8 @@
     <string name="presente">Presente</string>
     <string name="ausente">Ausente</string>
     <string name="salvar">Salvar</string>
+    <string name="remocao_convidado">Excluir Convidado</string>
+    <string name="deseja_remover">Deseja remover o usuário?</string>
+    <string name="sim">Sim</string>
+    <string name="nao">Não</string>
 </resources>

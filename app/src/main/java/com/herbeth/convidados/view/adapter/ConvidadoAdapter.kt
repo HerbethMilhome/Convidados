@@ -5,15 +5,17 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.herbeth.convidados.R
 import com.herbeth.convidados.service.model.ConvidadoModel
+import com.herbeth.convidados.view.listener.ConvidadoListener
 import com.herbeth.convidados.view.viewholder.ConvidadoViewHolder
 
-class ConvidadoAdapter: RecyclerView.Adapter<ConvidadoViewHolder>() {
+class ConvidadoAdapter : RecyclerView.Adapter<ConvidadoViewHolder>() {
 
     private var mConvidadosList: List<ConvidadoModel> = arrayListOf()
+    private lateinit var mListener: ConvidadoListener
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ConvidadoViewHolder {
         val item = LayoutInflater.from(parent.context).inflate(R.layout.row_convidado, parent, false)
-        return ConvidadoViewHolder(item)
+        return ConvidadoViewHolder(item, mListener)
     }
 
     override fun onBindViewHolder(holder: ConvidadoViewHolder, position: Int) {
@@ -24,9 +26,13 @@ class ConvidadoAdapter: RecyclerView.Adapter<ConvidadoViewHolder>() {
         return mConvidadosList.count()
     }
 
-    fun updateConvidados(list: List<ConvidadoModel>){
+    fun updateConvidados(list: List<ConvidadoModel>) {
         mConvidadosList = list
         notifyDataSetChanged()
+    }
+
+    fun attachListener(listener: ConvidadoListener) {
+        mListener = listener
     }
 
 }

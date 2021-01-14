@@ -24,7 +24,7 @@ class ConvidadoRepository private constructor(context: Context) {
         }
     }
 
-    fun salva(convidado: ConvidadoModel): Boolean {
+    fun salvar(convidado: ConvidadoModel): Boolean {
         return try {
             val db = mConvidadoDataBaseHelper.writableDatabase
 
@@ -40,7 +40,7 @@ class ConvidadoRepository private constructor(context: Context) {
         }
     }
 
-    fun atualiza(convidado: ConvidadoModel): Boolean {
+    fun atualizar(convidado: ConvidadoModel): Boolean {
         return try {
             val db = mConvidadoDataBaseHelper.writableDatabase
 
@@ -59,7 +59,7 @@ class ConvidadoRepository private constructor(context: Context) {
         }
     }
 
-    fun exclui(id: Int): Boolean {
+    fun excluir(id: Int): Boolean {
         return try {
             val db = mConvidadoDataBaseHelper.writableDatabase
 
