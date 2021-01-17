@@ -51,7 +51,7 @@ class TodosFragment : Fragment() {
 
             override fun onDelete(id: Int) {
                 todosViewModel.delete(id)
-                todosViewModel.listaTodos()
+                todosViewModel.lista(ConvidadoConstants.FILTRO.VAZIO)
             }
         }
         mAdapter.attachListener(mListener)
@@ -67,6 +67,6 @@ class TodosFragment : Fragment() {
 
     override fun onResume() {
         super.onResume()
-        todosViewModel.listaTodos()
+        todosViewModel.lista(ConvidadoConstants.FILTRO.VAZIO)
     }
 }
