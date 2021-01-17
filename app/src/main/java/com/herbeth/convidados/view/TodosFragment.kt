@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.herbeth.convidados.R
 import com.herbeth.convidados.service.constants.ConvidadoConstants
+import com.herbeth.convidados.service.model.ConvidadoModel
 import com.herbeth.convidados.view.adapter.ConvidadoAdapter
 import com.herbeth.convidados.view.listener.ConvidadoListener
 import com.herbeth.convidados.viewmodel.TodosViewModel
@@ -53,6 +54,7 @@ class TodosFragment : Fragment() {
                 todosViewModel.delete(id)
                 todosViewModel.lista(ConvidadoConstants.FILTRO.VAZIO)
             }
+
         }
         mAdapter.attachListener(mListener)
 

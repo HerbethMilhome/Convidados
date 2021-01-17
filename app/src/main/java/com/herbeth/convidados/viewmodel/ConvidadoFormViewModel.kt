@@ -12,7 +12,7 @@ import com.herbeth.convidados.service.repository.ConvidadoRepository
 class ConvidadoFormViewModel(application: Application) : AndroidViewModel(application) {
 
     private val mContext = application.applicationContext
-    private val mConvidadoRepository: ConvidadoRepository = ConvidadoRepository.getInstance(mContext)
+    private val mConvidadoRepository: ConvidadoRepository = ConvidadoRepository(mContext)
     private var mSalvaConvidado = MutableLiveData<Boolean>()
     private var mConvidado = MutableLiveData<ConvidadoModel>()
 
@@ -20,7 +20,11 @@ class ConvidadoFormViewModel(application: Application) : AndroidViewModel(applic
     val convidado: LiveData<ConvidadoModel> = mConvidado
 
     fun salvar(id: Int, nome: String, presenca: Boolean) {
-        val convidado = ConvidadoModel(id, nome, presenca)
+        val convidado = ConvidadoModel().apply {
+            this.id = id
+            this.nome = nome
+            this.presenca = presenca
+        }
 
         if (id == 0){
             mSalvaConvidado.value = mConvidadoRepository.salvar(convidado)
